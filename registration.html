@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Booking</title>
+    <link rel="stylesheet" href="registration.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>Welcome to DreamStay Hotel</h1>
+    </header>
+
+    <!-- Registration Form Section -->
+    <div class="container">
+        <h2>Book Your Room</h2>
+        <form id="bookingForm" onsubmit="return validateForm()">
+            <!-- Personal Information -->
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <!-- Booking Information -->
+            <div class="form-group">
+                <label for="checkin">Check-In Date:</label>
+                <input type="date" id="checkin" name="checkin" required>
+            </div>
+            <div class="form-group">
+                <label for="checkout">Check-Out Date:</label>
+                <input type="date" id="checkout" name="checkout" required>
+            </div>
+            <div class="form-group">
+                <label for="roomType">Room Type:</label>
+                <select id="roomType" name="roomType" required>
+                    <option value="single">Single Room</option>
+                    <option value="double">Double Room</option>
+                    <option value="suite">Suite</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" name="guests" min="1" max="10" required>
+            </div>
+
+            <!-- Hotel Services -->
+            <h3>Hotel Services</h3>
+            <div class="form-group">
+                <label for="services">Choose Additional Services:</label>
+                <div>
+                    <input type="checkbox" id="hotWater" name="services" value="hotWater">
+                    <label for="hotWater">Hot Water</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="foodService" name="services" value="foodService">
+                    <label for="foodService">Food Service</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="laundry" name="services" value="laundry">
+                    <label for="laundry">Laundry Service</label>
+                </div>
+            </div>
+
+            <!-- Room Gallery -->
+            <div class="room-images">
+                <h3>Room Gallery</h3>
+                <div class="image-gallery">
+                    <figure onclick="selectRoomType('single')">
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.FJMZRpeqIMkr2TT6qXNjpwHaEo&pid=Api&P=0&h=180" alt="Single Room">
+                        <figcaption>Single Room</figcaption>
+                    </figure>
+                    <figure onclick="selectRoomType('double')">
+                        <img src="https://tse3.mm.bing.net/th?id=OIP.Fiaql_BnlWqr5NmFlErbhQHaE8&pid=Api&P=0&h=180" alt="Double Room">
+                        <figcaption>Double Room</figcaption>
+                    </figure>
+                    <figure onclick="selectRoomType('suite')">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.sLlAVnIuVQdgGi8nXz6WuAHaE7&pid=Api&P=0&h=180" alt="Suite Room">
+                        <figcaption>Suite Room</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Payment Information -->
+            <h3>Payment Information</h3>
+            <div class="form-group">
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="creditCard">Credit Card</option>
+                    <option value="debitCard">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="netBanking">Net Banking</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" required pattern="[0-9]{13,16}" placeholder="13-16 digits">
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="form-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+            </div>
+
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 DreamStay Hotel | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function selectRoomType(roomType) {
+            document.getElementById('roomType').value = roomType;
+            document.getElementById('roomType').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>
